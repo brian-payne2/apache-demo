@@ -1,5 +1,5 @@
 resource "aws_iam_role" "apache_role" {
-  name = "test_role"
+  name = "${var.apache-iam-role-name}"
 
   assume_role_policy = <<EOF
 {
@@ -29,4 +29,9 @@ data "aws_iam_policy" "ssm_policy" {
 resource "aws_iam_role_policy_attachment" "apache_role_attach" {
   role       = "${aws_iam_role.apache_role.name}"
   policy_arn = "${data.aws_iam_policy.ssm_policy.arn}"
+}
+
+resource "aws_iam_instance_profile" "apache-ec2-instance-profile" {
+  name = "${var.ec2-instance-profile}"
+  role = "${aws_iam_role.apache_role.name}"
 }
