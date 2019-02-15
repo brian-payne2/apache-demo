@@ -1,5 +1,6 @@
 resource "aws_iam_role" "apache_role" {
   name = "${var.apache-iam-role-name}"
+  description = "Managed by Terraform"
 
   assume_role_policy = <<EOF
 {
