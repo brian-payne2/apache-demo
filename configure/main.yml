@@ -6,19 +6,9 @@
   become_method: sudo
 
   tasks:
-  - name: Install openssh
+  - name: Install dependencies
     yum:
-      name: openssh
-      state: present
-
-  - name: Install apache
-    yum:
-      name: httpd
-      state: present
-
-  - name: Install mod24_ssl
-    yum:
-      name:  mod_ssl
+      name: ['openssh', 'httpd', 'mod_ssl']
       state: present
 
   - name: Insert Index Page
