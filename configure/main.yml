@@ -1,6 +1,6 @@
 ---
 - name: Install and configure Apache
-  hosts: 3.88.27.66
+  hosts: 3.84.28.166
   remote_user: ec2-user
   become: yes
   become_method: sudo
@@ -26,6 +26,11 @@
       src: index.html
       dest: /var/www/html/index.html
 
+  - name: Insert httpd.conf
+    template:
+      src: httpd.conf
+      dest: /etc/httpd/conf/httpd.conf
+
   - name: Insert public key
     copy:
       src: "public.crt"
@@ -42,7 +47,7 @@
       group: root
       mode: 0400
 
-  - name: Start httpd
+  - name: Restart httpd
     service:
       name: httpd
       state: reloaded
