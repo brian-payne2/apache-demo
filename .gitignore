@@ -11,3 +11,4 @@
 #  Certificate files
 *.key
 *.crt
+*.p12
