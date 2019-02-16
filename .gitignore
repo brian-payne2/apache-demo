@@ -7,11 +7,3 @@
 
 # .tfvars files
 *.tfvars
-
-#  Certificate files
-*.key
-*.crt
-*.p12
-
-#  Python test files
-*.pyc
