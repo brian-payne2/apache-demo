@@ -7,8 +7,8 @@ lint:
   name: yamllint
 platforms:
   - name: instance
-    image: amazonlinux
-    image_version: 2018.03
+    image: milcom/centos7-systemd
+    privileged: true
 provisioner:
   name: ansible
   lint:

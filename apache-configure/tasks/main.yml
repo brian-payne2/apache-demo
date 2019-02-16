@@ -1,8 +1,8 @@
 ---
 # tasks file for apache-configure
 - name: Install dependencies
-  yum:
-    name: ['openssh', 'httpd', 'mod_ssl']
+  package:
+    name: ['openssl', 'httpd', 'mod_ssl']
     state: present
 
 - name: Insert Index Page
@@ -25,3 +25,4 @@
   service:
     name: httpd
     state: started
+    enabled: true

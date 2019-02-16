@@ -1,5 +1,6 @@
 ---
 # handlers file for apache-configure
-
 - name: restart apache service
-  service: name=httpd state=restarted
+  service:
+    name: httpd
+    state: restarted
