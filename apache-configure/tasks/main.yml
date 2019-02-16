@@ -1,0 +1,39 @@
+---
+# tasks file for apache-configure
+- name: Install dependencies
+  yum:
+    name: ['openssh', 'httpd', 'mod_ssl']
+    state: present
+
+- name: Insert Index Page
+  template:
+    src: index.html
+    dest: /var/www/html/index.html
+
+- name: Insert public key
+  copy:
+    src: "public.crt"
+    dest: "/etc/pki/tls/certs/localhost.crt"
+    owner: root
+    group: root
+    mode: 0644
+
+- name: Insert private key
+  copy:
+    src: "private.key"
+    dest: "/etc/pki/tls/private/localhost.key"
+    owner: root
+    group: root
+    mode: 0400
+
+- name: Insert httpd.conf
+  template:
+    src: httpd.conf
+    dest: /etc/httpd/conf/httpd.conf
+  notify:
+    restart apache service
+
+- name: Start httpd
+  service:
+    name: httpd
+    state: started
