@@ -12,3 +12,6 @@
 *.key
 *.crt
 *.p12
+
+#  Python test files
+*.pyc
