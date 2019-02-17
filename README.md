@@ -2,12 +2,7 @@
 This repo contains sections for both the automated creation, configuration and testing of an Apache web server serving pages over HTTPS in AWS.
 
 ### Requirements
-* Ensure you have the following tools installed on your local machine:
-  * Python
-  * Ansible
-  * Molecule
-  * Terraform
-  * Docker
+* Check the 'Built With' section to ensure you have compatible versions of Python, Ansible, Molecule, Terraform and Docker
 * These instructions assume that:
   * You have a VPC in AWS with a publicly routable subnet
   * You have created a .PEM file in your account and saved it to your local machine
@@ -40,7 +35,7 @@ We will start with deploying the EC2 instance to AWS
 
    ```$ ansible-playbook site.yml --private-key=/path/to/master.pem -i PUBLICIP,```
 
-   Now you should have an EC2 instance running Amazon Linux 2, with Apache enabled and running, serving traffic over HTTPS via a self-signed certificate!
+Now you should have an EC2 instance running Amazon Linux 2, with Apache enabled and running, serving traffic over HTTPS via a self-signed certificate!
 
 ## Testing
 This module was built via Ansible Galaxy and has molecule testing for configuration and idempotence built in. To test, follow these instructions:
