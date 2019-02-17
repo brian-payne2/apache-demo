@@ -22,8 +22,8 @@ We will start with deploying the EC2 instance to AWS
 
 1. From the command line, navigate to "terraform" folder contained in this repo
 2. Update the variable names in terraform.tfvars to suit your needs:
-  * 'publicip', 'key_name', 'vpc_id' and 'subnet_id' will all need to be modified for your account
-  * The AMI indicated is the managed Amazon Linux 2 AMI
+   - 'publicip', 'key_name', 'vpc_id' and 'subnet_id' will all need to be modified for your account
+   - The AMI indicated is the managed Amazon Linux 2 AMI
 3. Initialize the TF repo
 
 ```$ terraform init```
