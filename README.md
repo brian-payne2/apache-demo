@@ -2,7 +2,7 @@
 This repo contains sections for both the automated creation, configuration and testing of an Apache web server serving pages over HTTPS in AWS.
 
 ### Requirements
-* Check the 'Built With' section to ensure you have compatible versions of Python, Ansible, Molecule, Terraform and Docker
+* Check the 'Built With' section to ensure you have compatible versions of software dependencies
 * These instructions assume that:
   * You have a VPC in AWS with a publicly routable subnet
   * You have created a .PEM file in your account and saved it to your local machine
