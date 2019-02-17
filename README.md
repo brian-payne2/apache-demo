@@ -26,11 +26,11 @@ We will start with deploying the EC2 instance to AWS
    - The AMI indicated is the managed Amazon Linux 2 AMI
 3. Initialize the TF repo
 
-```$ terraform init```
+   ```$ terraform init```
 
 4. Once the repo initializes successfully, run the TF to deploy the EC2 instance, IAM roles/policies and necessary SGs for connectivity
 
-```$ terraform apply```
+   ```$ terraform apply```
 
 5. Grab the IP address outputted by the TF to get the public IP of your new EC2 instance
 
@@ -38,15 +38,15 @@ We will start with deploying the EC2 instance to AWS
 
 7. The final step is to run the Ansible playbook, replacing PUBLICIP with your new instance's public IP:
 
-```$ ansible-playbook site.yml --private-key=/path/to/master.pem -i PUBLICIP,```
+   ```$ ansible-playbook site.yml --private-key=/path/to/master.pem -i PUBLICIP,```
 
-Now you should have an EC2 instance running Amazon Linux 2, with Apache enabled and running, serving traffic over HTTPS via a self-signed certificate!
+   Now you should have an EC2 instance running Amazon Linux 2, with Apache enabled and running, serving traffic over HTTPS via a self-signed certificate!
 
 ## Testing
 This module was built via Ansible Galaxy and has molecule testing for configuration and idempotence built in. To test, follow these instructions:
 
-```$ cd apache-configure
-$ molecule test```
+   ```$ cd apache-configure```
+   ```$ molecule test```
 
 This will run through the full set of tests, and requires you to have all of the necessary components installed and configured on your local machine. This does run the tests through Docker, so ensure you have the necessary Docker modules installed. The test file itself is located in apache-demo/apache-configure/molecule/default/tests/test_default.py
 
