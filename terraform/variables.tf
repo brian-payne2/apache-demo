@@ -52,3 +52,15 @@ variable "ec2-instance-profile" {
 variable "subnet_id" {
   description = "Name of subnet to build Apache EC2 node in"
 }
+
+variable "state-file-bucket" {
+  description = "Bucket name for TF state file"
+}
+
+variable "dynamo-db-lock-table" {
+  description = "DynamoDB table name for TF state locking"
+}
+
+variable "region" {
+  description = "Region to create resources"
+}

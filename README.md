@@ -16,22 +16,22 @@ These instructions will teach you how to deploy and configure an Apache node in 
 We will start with deploying the EC2 instance to AWS
 
 1. From the command line, navigate to "terraform" folder contained in this repo
-2. Update the variable names in terraform.tfvars to suit your needs:
-   - 'publicip', 'key_name', 'vpc_id' and 'subnet_id' will all need to be modified for your account
-   - The AMI indicated is the managed Amazon Linux 2 AMI
-3. Initialize the TF repo
+2. Update the values in the provider.tf to point to the state file locations in S3 and DynamoDB.
+3. Create a terraform.tfvars to suit your needs:
+   - This example was built using the Amazon Linux 2 AMI
+4. Initialize the TF repo
 
    ```$ terraform init```
 
-4. Once the repo initializes successfully, run the TF to deploy the EC2 instance, IAM roles/policies and necessary SGs for connectivity
+5. Once the repo initializes successfully, run the TF to deploy the EC2 instance, IAM roles/policies and necessary SGs for connectivity
 
    ```$ terraform apply```
 
-5. Grab the IP address outputted by the TF to get the public IP of your new EC2 instance
+6. Grab the IP address outputted by the TF to get the public IP of your new EC2 instance
 
-6. Update the host in the Ansible playbook (apache-configure/site.yml) to point to the public IP of your new node
+7. Update the host in the Ansible playbook (apache-configure/site.yml) to point to the public IP of your new node
 
-7. The final step is to run the Ansible playbook, replacing PUBLICIP with your new instance's public IP:
+8. The final step is to run the Ansible playbook, replacing PUBLICIP with your new instance's public IP. Note: this step requires connectivity over port 22 to your EC2 instance.
 
    ```$ ansible-playbook site.yml --private-key=/path/to/master.pem -i PUBLICIP,```
 
